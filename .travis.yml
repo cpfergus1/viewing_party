@@ -17,3 +17,6 @@ deploy:
     repo: cpfergus1/viewing_party
     branch: main
   skip_cleanup: 'true'
+env:
+  global:
+    secure: j19+zqI/ab63LVQpZEsSzCtqErqUXnzg7SB6oD6T87eW/KBfLbwx9abeKzvlYSNe0esujNJqnahdSesp92LuIGRDsDU/U3cp7Z06zOt/qpLdOsr8BTtNTBFsYhFJ+hOaHaXaY931Rk88346qE8mtcCPlzCl0bOotyvBX1wuSY7vTR2oBpfZ+zUgJIMNS/PgvPK9fQwrShxhfHAK+6oy/ygd4z4ADJ4B31JAExYFLZmYuHNNmkX8l9tchbRqsdUgtuhKhfdrP/1PZXw/3/U23G5fcAajYoCyuSifafzEx1J9xrTKtGfnUlI6NqHQEqClS1IYAPQnNAenLqJdEljZhlWI0GXkiR3a4+tt9oDNB2DmfSycbqZv/m9JG0J42daVdrlxxkR4wIQAUIsRTBdfVSNbRFC2pMzrvnuUGr0kDupChNmO+dbOHqNllmxwdrObqGouT3OV0mC/Kkw/hQ/1YQQc5Xgbb1m3Sor3U+KNpS5l1ObaZ+CYFpuEpWyW/HjR5YD4YMwkw6jBxwuT9JQJi+mRDSDbHk5r+0T+s6+SCQjWM/T+tICBbURI1A6nOLdf2iC1FV35BJWs2cqa98qA8DU98Qlx/B6+FSmbADvr9BAmP2Fbw4WPaEIB6PvhQ/43jQWRjgcqvrr1Htu4vNgRWfCXMZk2j+kPmvwSbB9+HPXU=
