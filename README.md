@@ -12,11 +12,9 @@
 ## Viewing Party Functionality
 Viewing Party is a Ruby on Rails application that allows users to explore movie options and create multiple viewing parties with their friends. Users can search for movies or discover new ones and upon creating a viewing party, the user's friends will receive an email with viewing party details. The application consumes [The Movie Database (TMDB) API](https://developers.themoviedb.org/3/getting-started/introduction) endpoints.
 
-*Screenshot placeholder*
+## Deployment Link
 
-## Heroku
-
-https://agile-retreat-25350.herokuapp.com/
+[Viewing Party Heroku Deployment](https://agile-retreat-25350.herokuapp.com/)
 
 ## Requirements
  ### Testing Dependencies
@@ -28,7 +26,9 @@ https://agile-retreat-25350.herokuapp.com/
  ### Development Dependencies
   * rubocop-rails
 
+
 ## How to Install Viewing Party
+
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:{drop,create,merge}`
@@ -44,6 +44,7 @@ https://agile-retreat-25350.herokuapp.com/
 
 The development environment is run with `rails s` and can be viewed at **localhost:3000**
 
+
 ## Features
 
 - Search for registered friends by email and add them to their friends list.
@@ -54,8 +55,9 @@ The development environment is run with `rails s` and can be viewed at **localho
 
 
 ## Statistics
+
    ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-Ruby-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)   ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
 ## Schema Design
 
-![image](https://user-images.githubusercontent.com/68167430/101729315-32a21600-3a75-11eb-86c2-55c246d448c7.png)
+![image](https://user-images.githubusercontent.com/67594471/101731065-4d29be80-3a78-11eb-8e1e-ce28283ce6e6.png)
