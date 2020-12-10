@@ -3,15 +3,19 @@
 <%= button_to 'Create Viewing Party for Movie', new_viewing_party_path, method: :get, params: {title: @movie.title, runtime: @movie.runtime_min, movie_id: @movie.api_movie_id} %>
 </div><br>
 <div class = 'stats'>
-  <div class = 'vote_average' align = 'left'> Vote Average: <%= @movie.rating %> </div>
-  <div class = 'runtime' align = 'center'> Runtime: <%= @movie.runtime_display %></div>
-  <div class = 'genre' align = 'right'> Genre(s): <%= @movie.genres %> </div>
+  <table>
+    <tr>
+      <td><div class = 'vote_average' align = 'left'> Vote Average: <%= @movie.rating %> </div></td>
+      <td><div class = 'runtime' align = 'center'> Runtime: <%= @movie.runtime_display %></div></td>
+      <td><div class = 'genre' align = 'right'> Genre(s): <%= @movie.genres %> </div></td>
+    </tr>
+  </table>
 </div><br>
-<h4> Summary </h4><br>
+<h2> Summary </h2><br>
 <div class = 'summary'>
   <p> <%= @movie.overview %> </p>
 </div>
-<h4> Cast </h4><br>
+<h2> Cast </h2><br>
 <div class = 'cast'>
   <ul>
     <% @cast.each do |actor| %>
@@ -19,26 +23,28 @@
     <% end %>
   </ul>
 </div><br>
-<h4> <%= @reviews.count %> Reviews </h4><br>
+<h2> <%= @reviews.count %> Reviews </h2><br>
 <div class = 'reviews'>
   <% @reviews.each do |review| %>
   <p class = 'author'> Author: <%= review.author %> </p>
   <p class = 'content'> <%= review.content %> </p>
   <% end %>
 </div>
-<h2>Recommendations</h2>
-<div>
-  <ol class="recommendations">
-    <% @movie.recommendations[0..9].each do |film| %>
-      <li class="recommendation-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
-    <% end %>
-  </ol>
-</div>
-<h2>Similar</h2>
-<div>
-  <ol class="similar">
-    <% @movie.similar[0..9].each do |film| %>
-      <li class="similar-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
-    <% end %>
-  </ol>
+<div class = "row">
+  <div class="recommendation">
+  <h2 text_align='right'>Recommended Movies</h2>
+    <ol class='RecommendedList'>
+      <% @movie.recommendations[0..9].each do |film| %>
+        <li class="recommendation-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
+      <% end %>
+    </ol>
+  </div>
+  <div class= 'similar'>
+  <h2>Similar Movies</h2>
+    <ol class ='SimilarList'>
+      <% @movie.similar[0..9].each do |film| %>
+        <li class="similar-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
+      <% end %>
+    </ol>
+  </div>
 </div>

@@ -14,10 +14,209 @@
  *= require_self
  */
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+ .Center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+   width: 85%;
+ }
+ body {
+   text-align: center;
+   background-color: rgb(255,255,255);
+   margin-left: auto;
+   margin-right: auto;
+   width: 85%;
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+   font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+ }
+ form.ViewingNew {
+   align-content: center;
+ }
+ label,
+ input {
+   /* In order to define widths */
+   display: inline-block;
+ }
+
+ label {
+   width: 30%;
+   /* Positions the label text beside the input */
+   text-align: right;
+ }
+ form.ViewingNew input[type=number] {
+   width: 100px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ #viewing_date_3i {
+   display: inline-block;
+   width: 75px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ #viewing_date_2i {
+   display: inline-block;
+   width: 125px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ #viewing_date_1i {
+   display: inline-block;
+   width: 100px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ #viewing_start_time_4i {
+   display: inline-block;
+   width: 100px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ #viewing_start_time_5i {
+   display: inline-block;
+   width: 100px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ form.movies {
+   display: inline-block;
+ }
+ form.create {
+   display: inline-block;
+ }
+ form.welcome {
+   display: inline-block;
+ }
+
+ input[type=text], select {
+   width: 400px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+ input[type=password], select {
+   width: 400px;
+   padding: 12px 20px;
+   margin: 8px 0;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+
+ input[type=submit] {
+   background-color: #823b3b;
+   color: white;
+   justify-content: center;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
+
+ input[type=submit]:hover {
+   background-color: #a74f4f;
+ }
+
+ label{
+   font-weight:bold;
+   text-align: right;
+   clear: left;
+   width: 120px;
+   margin-top: 18px;
+   display: inline-block;
+ }
+
+
+ h2 {
+   font-weight: bold;
+   color: #58595b;
+   line-height: 1.1;
+ }
+.movie{
+  width: 75%;
+  margin: auto;
+}
+
+ol li div.title{
+    display: table-cell;
+    width: 100%;
+}
+
+ol li div.rating{
+    display: table-cell;
+    white-space: nowrap;
+}
+ul {
+    column-count: 2;
+    column-gap: 10px;
+    justify-content: center;
+    list-style-position: inside;
+    margin: auto;
+
+}
+ol.SimilarList {
+    column-count: 2;
+    column-gap: 20px;
+    justify-content: center;
+    margin: auto;
+
+}
+ol.RecommendedList {
+    column-count: 2;
+    column-gap: 20px;
+    justify-content: center;
+    margin: auto;
+
+}
+
+table{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  font-size: 17px;
+}
+a.button {
+  background-color: #823b3b;
+  color: white;
+  padding: 7px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a.button:hover {
+  background-color: #a74f4f;
+}
+
+a.Register{
+ margin-left: 115px;
 }
 
 main {
@@ -28,4 +227,35 @@ footer {
   display: flex;
   align-self: baseline;
   flex-direction: row;
+}
+
+.row::after
+{ color: #fff;
+  height: 400px;
+  width: 600px;
+  margin: 0px auto;
+  padding: 5px;
+}
+.similar
+{
+  height: 400px;
+  width: 48%;
+  float: left;
+}
+.recommendation
+{
+  height: 400px;
+  width: 48%;
+  float: right;
+}
+
+.friends {
+  float: right;
+  width: 40%;
+  padding: 15px;
+}
+.viewing-parties {
+  float: left;
+  width: 40%;
+  padding: 15px;
 }

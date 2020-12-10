@@ -51,8 +51,8 @@ feature 'as a user' do
       it 'I can get movie recommendations', :vcr do
         visit movie_path(155)
 
-        expect(page).to have_css('.recommendations')
-        within ('.recommendations') do
+        expect(page).to have_css('.recommendation')
+        within ('.recommendation') do
           expect(page).to have_css('.recommendation-link', count: 10)
         end
       end

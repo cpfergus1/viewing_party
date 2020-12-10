@@ -1,23 +1,24 @@
 <%= button_to 'Discover Movies', discover_index_path, method: :get %>
+<div class="row">
+  <div class="friends">
+    <h2>Friends</h2>
+      <%= form_with model: @friend, url: user_friendships_path, local: true, method: :post do |f| %>
+        <%= f.text_field(:friends_email, :value => "Friend's Email") %>
+        <%= f.button 'Add Friend' %>
+      <% end %>
+      <%= "You currently have no friends. 🥺" if current_user.friends.empty? %>
+      <% current_user.friends.each do |friend| %>
+        <%= friend.username %>
+      <% end %>
+  </div>
 
-<h2>Friends</h2>
-<section class="friends">
-  <%= form_with model: @friend, url: user_friendships_path, local: true, method: :post do |f| %>
-    <%= f.text_field(:friends_email, :value => "Friend's Email") %>
-    <%= f.button 'Add Friend' %>
-  <% end %>
-  <%= "You currently have no friends. 🥺" if current_user.friends.empty? %>
-  <% current_user.friends.each do |friend| %>
-    <%= friend.username %>
-  <% end %>
-</section>
-
-<h2>Viewing Parties</h2>
-<section class="viewing-parties">
-  <% current_user.viewings.each do |viewing| %>
-    <%= viewing.movie.title %><br>
-    <%= viewing.start_time.strftime('%m-%d-%Y') %><br>
-    <%= viewing.start_time.strftime('%I:%M') %><br>
-    <%= viewing.user_hosting?(current_user.id) ? 'Host' : 'Guest' %><br><br>
-  <% end %>
-</section>
+  <div class="viewing-parties">
+    <h2>Viewing Parties</h2>
+      <% current_user.viewings.each do |viewing| %>
+        <%= viewing.movie.title %><br>
+        <%= viewing.start_time.strftime('%m-%d-%Y') %><br>
+        <%= viewing.start_time.strftime('%I:%M') %><br>
+        <%= viewing.user_hosting?(current_user.id) ? 'Host' : 'Guest' %><br><br>
+      <% end %>
+  </div>
+</div>

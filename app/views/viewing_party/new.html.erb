@@ -1,4 +1,4 @@
-<%= form_with model: @viewing_party, url: viewing_party_index_path, local: true, method: :post do |f| %>
+<%= form_with model: @viewing_party, url: viewing_party_index_path, local: true, class: 'ViewingNew', method: :post do |f| %>
   <%= f.label :title_name, 'Movie Title: ' %>
   <%= f.label :title, params[:title] %>
   <%= f.hidden_field :title, value: params[:title] %>

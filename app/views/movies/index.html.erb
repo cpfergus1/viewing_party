@@ -1,15 +1,15 @@
-<%= button_to 'Top Rated Movies', movies_path, method: :get %>
+<p><%= button_to 'Top Rated Movies', movies_path, method: :get %><p>
 
-<%= form_tag movies_path, method: :get do %>
+<%= form_tag movies_path, class: 'movies', method: :get do %>
   <%= text_field_tag :query, 'Movie Name' %>
-  <%= submit_tag 'Search' %>
+  <%= submit_tag 'Search', text_align: 'left'%>
 <% end %>
 
 <ol>
 <% @movies.each do |movie| %>
   <li class='movie'>
     <div class='title' align='left'><%= link_to movie.title, movie_path(movie.api_movie_id) %></div>
-    <div class='rating' align='right'>Rating: <%= movie.rating %></div><br>
+    <div class='rating' align='right'>Rating: <%= movie.rating %>⭐️</div><br>
   </li>
 <% end %>
 </ol>
