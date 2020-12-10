@@ -7,7 +7,8 @@ class FriendNotifierMailer < ApplicationMailer
     mail(
         reply_to: @host.email,
         to: @recipients.join(', '),
-        subject: "#{@host.username} has invited you to watch #{@viewing.movie.title}"
+        subject: "#{@host.username} has invited you to watch #{@viewing.movie.title}",
+        delivery_method_options: { api_key: ENV['MAILER_API_KEY'], secret_key: ENV['MAILER_SECRET'], version: 'v3.1' }
     )
   end
 
