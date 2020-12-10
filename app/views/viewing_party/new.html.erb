@@ -2,7 +2,8 @@
   <%= f.label :title_name, 'Movie Title: ' %>
   <%= f.label :title, params[:title] %>
   <%= f.hidden_field :title, value: params[:title] %>
-  <%= f.hidden_field :api_id, :value => params[:movie_id] %><br>
+  <%= f.hidden_field :api_id, :value => params[:movie_id] %>
+  <br>
   <%= f.label :duration_of_party, 'Duration of Party' %>
   <%= f.number_field :duration_of_party, value: params[:runtime], min: params[:runtime] %><br>
   <%= f.hidden_field :duration_of_movie, value: params[:runtime] %>
@@ -19,3 +20,5 @@
   <% end %><br>
   <%= f.submit 'Create Viewing Party' %>
 <% end %>
+<%# "/movies/#{@movie.id}/viewing_party" %>
+<%# model: @viewing_party %>

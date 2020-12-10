@@ -19,7 +19,7 @@ given!(:user) {@user = create(:user)}
     it 'I should see a form with viewing party details', :vcr do
       expect(page).to have_button('Create Viewing Party for Movie')
       click_on 'Create Viewing Party for Movie'
-      expect(current_path).to eq(new_viewing_party_path)
+      expect(current_path).to eq(new_movie_viewing_party_path(155))
       expect(page).to have_content('The Dark Knight')
       expect(page).to have_field('viewing[duration_of_party]')
       expect(page).to have_field('viewing[date(2i)]')
@@ -73,6 +73,19 @@ given!(:user) {@user = create(:user)}
       click_on 'Create Viewing Party'
       expect(current_path).to_not eq(user_dashboard_path(@user.username))
       expect(page).to have_content("Your party is not long enough to see the whole movie! Please change your time to accomidate the full viewing.")
+    end
+
+    it 'when I create a viewing party, an invitation with details about the viewing party is emailed to each invited user', :vcr do
+      click_on 'Create Viewing Party for Movie'
+      find(:css, "#Friend_#{@friend_1.id}").set(true)
+      find(:css, "#Friend_#{@friend_2.id}").set(true)
+      find(:css, "#Friend_#{@friend_3.id}").set(true)
+      click_on 'Create Viewing Party'
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+      email = ActionMailer::Base.deliveries.last
+      viewing = Viewing.last
+      subject = "#{@user.username} has invited you to watch #{viewing.movie.title}"
+      expect(email.to.count).to eq(3)
     end
   end
 end

@@ -4,15 +4,14 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
-    if guest_params.values.all?('0') ||
-       params[:viewing][:duration_of_movie].to_i > params[:viewing][:duration_of_party].to_i
-      error_return
-      render :new
+    @movie = Movie.create(movie_params) unless Movie.find_by(api_id: params[:api_id])
+    if error_return
+      redirect_to new_movie_viewing_party_path(@movie.api_id,
+                                               title: @movie.title,
+                                               runtime: @movie.duration_of_movie,
+                                               movie_id: @movie.api_id)
     else
-      @movie = Movie.create(movie_params) unless Movie.find_by(api_id: params[:api_id])
-      @viewing = @movie.viewings.create(viewing_params)
-      @viewing.add_guests(current_user, guest_params)
-      mailing_inviter_helper(@viewing)
+      create_viewing_party
       redirect_to user_dashboard_path(current_user.username)
     end
   end
@@ -44,12 +43,30 @@ class ViewingPartyController < ApplicationController
 
   def error_return
     if guest_params.values.all?('0')
-      flash.now[:errors] = "You don't want to have a viewing party with
-                        only yourself do you?"
-    elsif params[:viewing][:duration_of_movie].to_i > params[:viewing][:duration_of_party].to_i
-      flash.now[:errors] = "Your party is not long enough to see the whole
-                        movie! Please change your time to accomidate the full viewing."
+      no_friends_error
+      true
+    elsif @movie.duration_of_movie > params[:viewing][:duration_of_party].to_i
+      duration_flash_error
+      true
+    else
+      false
     end
+  end
+
+  def no_friends_error
+    flash[:errors] = "You don't want to have a viewing party with
+                          only yourself do you?"
+  end
+
+  def duration_flash_error
+    flash[:errors] = "Your party is not long enough to see the whole
+                      movie! Please change your time to accomidate the full viewing."
+  end
+
+  def create_viewing_party
+    @viewing = @movie.viewings.create(viewing_params)
+    @viewing.add_guests(current_user, guest_params)
+    mailing_inviter_helper(@viewing)
   end
 
   def mailing_inviter_helper(viewing)
