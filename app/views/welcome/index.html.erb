@@ -1,13 +1,13 @@
 <%= content_tag :h1, 'Welcome to Viewing Party!' %>
 <%= content_tag :p, 'Invite all your friends and setup a viewing party to watch some exciting movies!
                      Remember, if you are watching a movie alone, Samara will find you and get you.' %>
-<form align="CENTER">
+<section align="CENTER">
 <%= form_with model: @user, url: login_path, local: true, class: 'welcome', method: :get do |f| %>
   <%= f.label 'E-mail Address' %>
   <%= f.text_field :email %><br>
   <%= f.label 'Password' %>
   <%= f.password_field :password %><br>
   <%= f.submit 'Login' %>
-<% end %>
+<% end %><br>
 <%= link_to "New to Viewing Party? Register Here.", registration_path, class: 'Register' %>
-</form>
+</section>
