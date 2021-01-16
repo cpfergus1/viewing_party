@@ -19,8 +19,8 @@ feature 'as a user' do
       within(first('.movie')) do
         expect(page).to have_css('.title')
         expect(page).to have_css('.rating')
-        expect(page).to have_link('Batman: Death in the Family')
-        expect(page).to have_content('7.2')
+        expect(page).to have_link('Batman Begins')
+        expect(page).to have_content('7.7')
         title = find('.title').text
         rating = find('.rating').text
         expect(title).to_not be_empty
