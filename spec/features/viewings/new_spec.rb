@@ -35,7 +35,7 @@ given!(:user) {@user = create(:user)}
     it 'I fill out the form and create a viewing party', :vcr do
       click_on 'Create Viewing Party for Movie'
       fill_in 'viewing[duration_of_party]', with: 160
-      select_date '2020,Dec,30', :from => "Day"
+      select_date '2021,Dec,30', :from => "Day"
       select_time "20,30", from: 'viewing_start_time'
       find(:css, "#Friend_#{@friend_1.id}").set(true)
       find(:css, "#Friend_#{@friend_2.id}").set(true)
@@ -55,7 +55,7 @@ given!(:user) {@user = create(:user)}
     it 'I cannot create a new viewing party when i do not select any friends', :vcr do
       click_on 'Create Viewing Party for Movie'
       fill_in 'viewing[duration_of_party]', with: 160
-      select_date '2020,Dec,30', :from => "Day"
+      select_date '2021,Dec,30', :from => "Day"
       select_time "20,30", from: 'viewing_start_time'
       click_on 'Create Viewing Party'
       expect(current_path).to_not eq(user_dashboard_path(@user.username))
@@ -65,7 +65,7 @@ given!(:user) {@user = create(:user)}
     it 'I cannot create a new viewing party when the party duration is less than the movie duration', :vcr do
       click_on 'Create Viewing Party for Movie'
       fill_in 'viewing[duration_of_party]', with: 100
-      select_date '2020,Dec,30', :from => "Day"
+      select_date '2021,Dec,30', :from => "Day"
       select_time "20,30", from: 'viewing_start_time'
       find(:css, "#Friend_#{@friend_1.id}").set(true)
       find(:css, "#Friend_#{@friend_2.id}").set(true)
