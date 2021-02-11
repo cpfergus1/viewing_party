@@ -7,7 +7,7 @@
 ## Development Team
 [Curtis Bartell](https://github.com/c-bartell) <br>
 [Connor Ferguson](https://github.com/cpfergus1) <br>
-[Brian Liu](https://github.com/badgerbreezy) <br>
+[Brian Liu](https://github.com/the-color-bliu) <br>
 
 ## Viewing Party Functionality
 Viewing Party is a Ruby on Rails application that allows users to explore movie options and create multiple viewing parties with their friends. Users can search for movies or discover new ones and upon creating a viewing party, the user's friends will receive an email with viewing party details. The application consumes [The Movie Database (TMDB) API](https://developers.themoviedb.org/3/getting-started/introduction) endpoints.
